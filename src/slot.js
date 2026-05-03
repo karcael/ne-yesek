@@ -70,9 +70,61 @@ export function createSlot({ slotElement }) {
     return Math.floor(Math.random() * length);
   }
 
+  function prefersReducedMotion() {
+    return globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+  }
+
+  function spin({ onResult }) {
+    if (isSpinning || pool.length === 0) return;
+    isSpinning = true;
+
+    const targetIndex = pickRandomIndex(pool.length);
+    const middleRepeat = Math.floor(REPEATS / 2);
+    const lastRepeat = REPEATS - 1;
+    const targetFlatIndex = lastRepeat * pool.length + targetIndex;
+    const targetY = targetFlatIndex * ITEM_HEIGHT - Math.floor(VISIBLE_ITEMS / 2) * ITEM_HEIGHT;
+
+    const duration = prefersReducedMotion() ? 0 : SPIN_DURATION_MS;
+
+    function finish() {
+      currentIndex = targetIndex;
+      // Snap back to the middle repeat at the same logical index for next spin.
+      const middleFlatIndex = middleRepeat * pool.length + targetIndex;
+      const middleY = middleFlatIndex * ITEM_HEIGHT - Math.floor(VISIBLE_ITEMS / 2) * ITEM_HEIGHT;
+      reelEl.style.transition = 'none';
+      reelEl.style.transform = `translateY(-${middleY}px)`;
+      isSpinning = false;
+      onResult(pool[targetIndex]);
+    }
+
+    if (duration === 0) {
+      reelEl.style.transition = 'none';
+      reelEl.style.transform = `translateY(-${targetY}px)`;
+      slotElement.classList.add('slot--flash');
+      setTimeout(() => slotElement.classList.remove('slot--flash'), 200);
+      finish();
+      return;
+    }
+
+    let settled = false;
+    const onEnd = () => {
+      if (settled) return;
+      settled = true;
+      reelEl.removeEventListener('transitionend', onEnd);
+      finish();
+    };
+    reelEl.addEventListener('transitionend', onEnd, { once: true });
+    setTimeout(onEnd, duration + 200); // watchdog
+
+    reelEl.style.transition = `transform ${duration}ms ${EASING}`;
+    requestAnimationFrame(() => {
+      reelEl.style.transform = `translateY(-${targetY}px)`;
+    });
+  }
+
   return {
     render,
     isSpinning: () => isSpinning,
-    spin: () => { /* implemented in Task 7 */ },
+    spin,
   };
 }

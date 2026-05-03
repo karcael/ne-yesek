@@ -107,3 +107,7 @@ html, body {
   font-size: 11px;
   margin: 0;
 }
+
+.slot--flash .slot-highlight {
+  background: rgba(231, 110, 85, 0.25);
+}
