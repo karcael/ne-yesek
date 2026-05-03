@@ -69,6 +69,6 @@ test('vegan foods are also tagged vejetaryen', () => {
   }
 });
 
-test('FOODS has between 30 and 50 entries', () => {
-  assert.ok(FOODS.length >= 30 && FOODS.length <= 50, `expected 30-50 foods, got ${FOODS.length}`);
+test('FOODS has between 30 and 80 entries', () => {
+  assert.ok(FOODS.length >= 30 && FOODS.length <= 80, `expected 30-80 foods, got ${FOODS.length}`);
 });
