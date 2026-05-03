@@ -46,24 +46,48 @@ html, body {
 
 .preset-chips .nes-btn { font-size: 10px; flex-shrink: 0; }
 
-.slot-section { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.slot-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
 
 .slot {
-  flex: 1;
+  flex: 0 0 auto;
+  width: 100%;
+  height: 300px;
   background: var(--surface);
   border: 4px solid var(--ink);
   box-shadow: 4px 4px 0 var(--ink);
   position: relative;
   overflow: hidden;
-  min-height: 240px;
 }
 
 .info { font-size: 10px; text-align: center; margin: 0; }
 
 .spin-btn { font-size: 14px; padding: 16px; }
 
-.drawer { width: 100%; max-width: 480px; border: 4px solid var(--ink); padding: 0; }
-.drawer-header { display: flex; justify-content: space-between; padding: 12px; border-bottom: 3px solid var(--ink); }
+.drawer {
+  width: 100%;
+  max-width: 480px;
+  border: 4px solid var(--ink);
+  padding: 0;
+  margin: auto auto 0;
+  animation: drawer-slide-up 0.25s ease-out;
+}
+
+.drawer::backdrop { background: rgba(0, 0, 0, 0.4); }
+
+@keyframes drawer-slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.drawer-header { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 3px solid var(--ink); }
 .drawer-counter { padding: 8px 12px; font-size: 10px; margin: 0; }
 .food-list { list-style: none; padding: 0 12px; margin: 0; max-height: 50vh; overflow-y: auto; }
 
@@ -128,4 +152,5 @@ html, body {
 
 @media (prefers-reduced-motion: reduce) {
   .slot-reel { transition: none !important; }
+  .drawer { animation: none; }
 }
