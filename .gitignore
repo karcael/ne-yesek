@@ -20,3 +20,6 @@ npm-debug.log*
 
 # Brainstorming session artifacts
 .superpowers/
+
+# Local AI assistant rules (kept private)
+CLAUDE.md
