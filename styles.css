@@ -1,0 +1,68 @@
+:root {
+  --bg: #d3b88c;
+  --surface: #ffffff;
+  --ink: #212529;
+  --accent: #e76e55;
+  --success: #92cc41;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 12px;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-title { margin: 0; font-size: 16px; }
+
+.preset-chips {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.preset-chips .nes-btn { font-size: 10px; flex-shrink: 0; }
+
+.slot-section { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+
+.slot {
+  flex: 1;
+  background: var(--surface);
+  border: 4px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  position: relative;
+  overflow: hidden;
+  min-height: 240px;
+}
+
+.info { font-size: 10px; text-align: center; margin: 0; }
+
+.spin-btn { font-size: 14px; padding: 16px; }
+
+.drawer { width: 100%; max-width: 480px; border: 4px solid var(--ink); padding: 0; }
+.drawer-header { display: flex; justify-content: space-between; padding: 12px; border-bottom: 3px solid var(--ink); }
+.drawer-counter { padding: 8px 12px; font-size: 10px; margin: 0; }
+.food-list { list-style: none; padding: 0 12px; margin: 0; max-height: 50vh; overflow-y: auto; }
