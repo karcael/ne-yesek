@@ -22,7 +22,7 @@ export const PRESETS = [
 ];
 
 export const FOODS = [
-  // Sipariş ağırlıklı
+  // Order-focused
   { id: 'lahmacun',         name: 'Lahmacun',          emoji: '🌯', tags: ['siparis', 'fast-food', 'et', 'hamur'] },
   { id: 'adana-kebap',      name: 'Adana Kebap',       emoji: '🍢', tags: ['siparis', 'et'] },
   { id: 'urfa-kebap',       name: 'Urfa Kebap',        emoji: '🍢', tags: ['siparis', 'et'] },
@@ -58,7 +58,7 @@ export const FOODS = [
   { id: 'kazandibi',        name: 'Kazandibi',         emoji: '🍮', tags: ['siparis', 'tatli', 'vejetaryen'] },
   { id: 'baklava',          name: 'Baklava',           emoji: '🍯', tags: ['siparis', 'tatli', 'vejetaryen', 'hamur'] },
   { id: 'trilece',          name: 'Trileçe',           emoji: '🍰', tags: ['siparis', 'tatli', 'vejetaryen'] },
-  // Ev ağırlıklı
+  // Home-focused
   { id: 'makarna',          name: 'Makarna',           emoji: '🍝', tags: ['ev', 'vejetaryen', 'hamur'] },
   { id: 'omlet',            name: 'Omlet',             emoji: '🍳', tags: ['ev', 'vejetaryen', 'hafif'] },
   { id: 'menemen',          name: 'Menemen',           emoji: '🍳', tags: ['ev', 'vejetaryen', 'hafif', 'sebze'] },
