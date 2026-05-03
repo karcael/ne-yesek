@@ -1,4 +1,70 @@
-// Foods, presets, and valid tags. Populated in Task 3.
-export const VALID_TAGS = [];
-export const PRESETS = [];
-export const FOODS = [];
+// Closed set of valid tags. Used for data integrity validation.
+export const VALID_TAGS = [
+  // Source
+  'siparis', 'ev',
+  // Theme
+  'fast-food', 'ev-yemegi-klasik', 'corba', 'tatli',
+  // Diet
+  'vejetaryen', 'vegan', 'hafif',
+  // Content
+  'et', 'hamur', 'pirinc', 'sebze',
+];
+
+export const PRESETS = [
+  { id: 'hepsi',      name: 'Hepsi',      tag: null },
+  { id: 'siparis',    name: 'Sipariş',    tag: 'siparis' },
+  { id: 'ev-yemegi',  name: 'Ev Yemeği',  tag: 'ev' },
+  { id: 'diyet',      name: 'Diyet',      tag: 'hafif' },
+  { id: 'vejetaryen', name: 'Vejetaryen', tag: 'vejetaryen' },
+  { id: 'vegan',      name: 'Vegan',      tag: 'vegan' },
+  { id: 'fast-food',  name: 'Fast Food',  tag: 'fast-food' },
+  { id: 'tatli',      name: 'Tatlı',      tag: 'tatli' },
+];
+
+export const FOODS = [
+  // Sipariş ağırlıklı
+  { id: 'lahmacun',         name: 'Lahmacun',          emoji: '🌯', tags: ['siparis', 'fast-food', 'et', 'hamur'] },
+  { id: 'adana-kebap',      name: 'Adana Kebap',       emoji: '🍢', tags: ['siparis', 'et'] },
+  { id: 'urfa-kebap',       name: 'Urfa Kebap',        emoji: '🍢', tags: ['siparis', 'et'] },
+  { id: 'doner',            name: 'Döner',             emoji: '🥙', tags: ['siparis', 'fast-food', 'et'] },
+  { id: 'pide',             name: 'Pide',              emoji: '🫓', tags: ['siparis', 'fast-food', 'hamur', 'et'] },
+  { id: 'pizza-karisik',    name: 'Karışık Pizza',     emoji: '🍕', tags: ['siparis', 'fast-food', 'hamur', 'et'] },
+  { id: 'pizza-margherita', name: 'Margherita Pizza',  emoji: '🍕', tags: ['siparis', 'fast-food', 'hamur', 'vejetaryen'] },
+  { id: 'hamburger',        name: 'Hamburger',         emoji: '🍔', tags: ['siparis', 'fast-food', 'et', 'hamur'] },
+  { id: 'tavuk-burger',     name: 'Tavuk Burger',      emoji: '🍔', tags: ['siparis', 'fast-food', 'et', 'hamur'] },
+  { id: 'tavuk-durum',      name: 'Tavuk Dürüm',       emoji: '🌯', tags: ['siparis', 'fast-food', 'et', 'hamur'] },
+  { id: 'et-durum',         name: 'Et Dürüm',          emoji: '🌯', tags: ['siparis', 'fast-food', 'et', 'hamur'] },
+  { id: 'tantuni',          name: 'Tantuni',           emoji: '🌯', tags: ['siparis', 'fast-food', 'et'] },
+  { id: 'cig-kofte',        name: 'Çiğ Köfte',         emoji: '🌶️', tags: ['siparis', 'fast-food', 'vejetaryen', 'vegan'] },
+  { id: 'iskender',         name: 'İskender',          emoji: '🍖', tags: ['siparis', 'et'] },
+  { id: 'kofte',            name: 'Köfte',             emoji: '🍖', tags: ['siparis', 'ev', 'et'] },
+  { id: 'manti',            name: 'Mantı',             emoji: '🥟', tags: ['siparis', 'ev', 'hamur', 'et'] },
+  { id: 'icli-kofte',       name: 'İçli Köfte',        emoji: '🥟', tags: ['siparis', 'et', 'hamur'] },
+  { id: 'kuru-fasulye',     name: 'Kuru Fasulye',      emoji: '🫘', tags: ['siparis', 'ev', 'sebze', 'ev-yemegi-klasik'] },
+  { id: 'pilav-tavuk',      name: 'Tavuklu Pilav',     emoji: '🍚', tags: ['siparis', 'ev', 'et', 'pirinc', 'ev-yemegi-klasik'] },
+  { id: 'karniyarik',       name: 'Karnıyarık',        emoji: '🍆', tags: ['siparis', 'ev', 'et', 'sebze', 'ev-yemegi-klasik'] },
+  { id: 'imam-bayildi',     name: 'İmam Bayıldı',      emoji: '🍆', tags: ['siparis', 'ev', 'vejetaryen', 'vegan', 'sebze', 'ev-yemegi-klasik'] },
+  { id: 'mercimek-corbasi', name: 'Mercimek Çorbası',  emoji: '🍲', tags: ['siparis', 'ev', 'vejetaryen', 'vegan', 'hafif', 'corba'] },
+  { id: 'ezogelin-corbasi', name: 'Ezogelin Çorbası',  emoji: '🍲', tags: ['siparis', 'ev', 'vejetaryen', 'hafif', 'corba'] },
+  { id: 'yayla-corbasi',    name: 'Yayla Çorbası',     emoji: '🍲', tags: ['siparis', 'ev', 'vejetaryen', 'hafif', 'corba', 'pirinc'] },
+  { id: 'tavuk-corbasi',    name: 'Tavuk Çorbası',     emoji: '🍲', tags: ['siparis', 'ev', 'et', 'hafif', 'corba'] },
+  { id: 'iskembe-corbasi',  name: 'İşkembe Çorbası',   emoji: '🍲', tags: ['siparis', 'et', 'corba'] },
+  { id: 'sushi',            name: 'Sushi',             emoji: '🍣', tags: ['siparis', 'pirinc', 'hafif'] },
+  { id: 'wrap-tavuk',       name: 'Tavuk Wrap',        emoji: '🌯', tags: ['siparis', 'fast-food', 'et', 'hamur', 'hafif'] },
+  { id: 'sezar-salata',     name: 'Sezar Salata',      emoji: '🥗', tags: ['siparis', 'ev', 'et', 'hafif'] },
+  { id: 'coban-salata',     name: 'Çoban Salata',      emoji: '🥗', tags: ['siparis', 'ev', 'vejetaryen', 'vegan', 'hafif', 'sebze'] },
+  { id: 'kunefe',           name: 'Künefe',            emoji: '🍮', tags: ['siparis', 'tatli', 'vejetaryen'] },
+  { id: 'sutlac',           name: 'Sütlaç',            emoji: '🍮', tags: ['siparis', 'ev', 'tatli', 'vejetaryen', 'pirinc'] },
+  { id: 'kazandibi',        name: 'Kazandibi',         emoji: '🍮', tags: ['siparis', 'tatli', 'vejetaryen'] },
+  { id: 'baklava',          name: 'Baklava',           emoji: '🍯', tags: ['siparis', 'tatli', 'vejetaryen', 'hamur'] },
+  { id: 'trilece',          name: 'Trileçe',           emoji: '🍰', tags: ['siparis', 'tatli', 'vejetaryen'] },
+  // Ev ağırlıklı
+  { id: 'makarna',          name: 'Makarna',           emoji: '🍝', tags: ['ev', 'vejetaryen', 'hamur'] },
+  { id: 'omlet',            name: 'Omlet',             emoji: '🍳', tags: ['ev', 'vejetaryen', 'hafif'] },
+  { id: 'menemen',          name: 'Menemen',           emoji: '🍳', tags: ['ev', 'vejetaryen', 'hafif', 'sebze'] },
+  { id: 'tost',             name: 'Tost',              emoji: '🥪', tags: ['ev', 'fast-food', 'vejetaryen', 'hamur'] },
+  { id: 'sahanda-yumurta',  name: 'Sahanda Yumurta',   emoji: '🍳', tags: ['ev', 'vejetaryen', 'hafif'] },
+  { id: 'yesil-salata',     name: 'Yeşil Salata',      emoji: '🥗', tags: ['ev', 'vejetaryen', 'vegan', 'hafif', 'sebze'] },
+  { id: 'sade-pilav',       name: 'Sade Pilav',        emoji: '🍚', tags: ['ev', 'vejetaryen', 'vegan', 'pirinc', 'ev-yemegi-klasik'] },
+  { id: 'eriste',           name: 'Erişte',            emoji: '🍝', tags: ['ev', 'vejetaryen', 'ev-yemegi-klasik', 'hamur'] },
+];
