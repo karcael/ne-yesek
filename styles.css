@@ -111,3 +111,21 @@ html, body {
 .slot--flash .slot-highlight {
   background: rgba(231, 110, 85, 0.25);
 }
+
+.nes-btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.spin-btn { min-height: 56px; }
+
+.food-list-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.food-list-item--hidden { opacity: 0.5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .slot-reel { transition: none !important; }
+}

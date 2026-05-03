@@ -114,4 +114,8 @@ els.showAll.addEventListener('click', () => {
   renderDrawer();
 });
 
+els.drawer.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') els.drawer.close();
+});
+
 renderAll();
