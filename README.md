@@ -4,16 +4,30 @@
 
 ## Kullanım
 
-`index.html` dosyasını tarayıcıda aç. İnternet bağlantısı yalnızca ilk açılışta NES.css ve fontu indirmek için gerekli.
+Yayında: dosyaları herhangi bir statik web sunucusuna (GitHub Pages, nginx, Vercel, Cloudflare Pages vb.) koyman yeterli. İnternet bağlantısı yalnızca ilk açılışta NES.css ve fontu indirmek için gerekli.
 
 ## Geliştirme
 
+Proje native ES modülleri kullanıyor. Modern tarayıcılar bu modülleri `file://` üzerinden CORS nedeniyle yüklemiyor, bu yüzden yerel test için bir HTTP sunucu gerekli. En kolayı:
+
 ```bash
-# Birim testleri
+# Python (genelde sistemde yüklü)
+python3 -m http.server 8765
+# Sonra: http://localhost:8765/
+
+# Veya Node ile
+npx serve
+
+# Veya VS Code "Live Server" eklentisi
+```
+
+Birim testleri için:
+
+```bash
 npm test
 ```
 
-Build adımı yok, paket bağımlılığı yok. Tüm modüller native ES modülleri.
+Build adımı yok, paket bağımlılığı yok.
 
 ## Teknoloji
 
