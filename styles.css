@@ -42,7 +42,11 @@ html, body {
   overflow-x: auto;
   padding-bottom: 4px;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+
+.preset-chips::-webkit-scrollbar { display: none; }
 
 .preset-chips .nes-btn { font-size: 10px; flex-shrink: 0; }
 
