@@ -48,6 +48,14 @@ html, body {
 
 .preset-chips::-webkit-scrollbar { display: none; }
 
+@media (pointer: fine) {
+  .preset-chips {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
+}
+
 .preset-chips .nes-btn { font-size: 10px; flex-shrink: 0; }
 
 .slot-section {
